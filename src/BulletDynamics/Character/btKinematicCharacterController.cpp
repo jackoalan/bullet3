@@ -337,6 +337,8 @@ void btKinematicCharacterController::stepForwardAndStrafe ( btCollisionWorld* co
 	
 	btScalar fraction = 1.0;
 	btScalar distance2 = (m_currentPosition-m_targetPosition).length2();
+    if (distance2 < SIMD_EPSILON)
+        return;
 //	printf("distance2=%f\n",distance2);
 
 	if (m_touchingContact)
