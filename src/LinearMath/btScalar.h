@@ -230,6 +230,9 @@ inline int	btGetVersion()
 
 #else
 
+        #ifdef BT_USE_SSE
+            #include <smmintrin.h>
+        #endif
 		#define SIMD_FORCE_INLINE inline
 		///@todo: check out alignment methods for other platforms/compilers
 		///#define ATTRIBUTE_ALIGNED16(a) a __attribute__ ((aligned (16)))
