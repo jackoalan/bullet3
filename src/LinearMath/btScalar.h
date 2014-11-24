@@ -169,10 +169,14 @@ inline int	btGetVersion()
 #if (defined (__APPLE__) && (!defined (BT_USE_DOUBLE_PRECISION)))
     #if defined (__i386__) || defined (__x86_64__)
 		#define BT_USE_SIMD_VECTOR3
+        #ifndef BT_USE_SSE
 		#define BT_USE_SSE
+        #endif
 		//BT_USE_SSE_IN_API is enabled on Mac OSX by default, because memory is automatically aligned on 16-byte boundaries
 		//if apps run into issues, we will disable the next line
+        #ifndef BT_USE_SSE_IN_API
 		#define BT_USE_SSE_IN_API
+        #endif
         #ifdef BT_USE_SSE
             // include appropriate SSE level
             #if defined (__SSE4_1__)
