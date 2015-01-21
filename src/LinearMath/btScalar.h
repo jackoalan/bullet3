@@ -210,7 +210,7 @@ inline int	btGetVersion()
 	#endif
 
 	#if defined(DEBUG) || defined (_DEBUG)
-	 #if defined (__i386__) || defined (__x86_64__)
+	 #if 0 && ( defined (__i386__) || defined (__x86_64__) )
 	#include <stdio.h>
 	 #define btAssert(x)\
 	{\

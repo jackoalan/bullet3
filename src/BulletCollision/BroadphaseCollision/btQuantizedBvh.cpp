@@ -577,7 +577,8 @@ void	btQuantizedBvh::walkStacklessQuantizedTreeAgainstRay(btNodeOverlapCallback*
 
 #ifdef RAYAABB2
 	btVector3 rayDirection = (rayTarget-raySource);
-	rayDirection.normalize ();
+    if (!rayDirection.isZero())
+        rayDirection.normalize ();
 	lambda_max = rayDirection.dot(rayTarget-raySource);
 	///what about division by zero? --> just set rayDirection[i] to 1.0
 	rayDirection[0] = rayDirection[0] == btScalar(0.0) ? btScalar(BT_LARGE_FLOAT) : btScalar(1.0) / rayDirection[0];
